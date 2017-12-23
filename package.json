@@ -23,6 +23,6 @@
   "homepage": "https://github.com/TheBrainFamily/cypress-cucumber-example#readme",
   "dependencies": {
     "cypress": "^1.4.0",
-    "cypress-cucumber-preprocessor": "0.0.1"
+    "cypress-cucumber-preprocessor": "0.0.2"
   }
 }
