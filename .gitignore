@@ -61,3 +61,4 @@ typings/
 .idea
 
 cypress/videos
+cypress/screenshots
