@@ -1,13 +1,11 @@
-Feature: The Google News
+Feature: The Google
 
-  I want to open TheBrain Software House page
+  I want to open Google page
 
-  @noise-tag @tag-to-ignore
-  Scenario: Opening a TheBrain Software network page
-    Given I open TheBrain Software House page
-    Then I see "TheBrain Software House" in the title
+  Scenario: Opening a Google network page
+    Given I open Google page
+    Then I see "Google" in the title
 
-  @noise-tag @tag-to-include
   Scenario: Different kind of opening
-    Given I kinda open TheBrain Software House page
+    Given I kinda open Google page
     Then I am very happy

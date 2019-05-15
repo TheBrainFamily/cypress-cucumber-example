@@ -1,7 +1,7 @@
 import { Given } from "cypress-cucumber-preprocessor/steps";
 
-const url = "https://thebrain.pro";
+const url = "https://google.com";
 
-Then(`I am very happy`, () => {
-  cy.title().should("include", "TheBrain Software House");
+Given(`I open Google page`, () => {
+  cy.visit(url);
 });
