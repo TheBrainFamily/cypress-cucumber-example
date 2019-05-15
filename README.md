@@ -117,8 +117,7 @@ Keep in mind that order matters and use parentheses wisely. The following comman
 ```./node_modules/.bin/cypress run -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
 ```./node_modules/.bin/cypress run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
 
-The first one will include scenario tagged `@tag-to-include` from the [Twitter.feature](https://github
-.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature), while 
+The first one will include scenario tagged `@tag-to-include` from the [Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature), while 
 the second one will skip all scenarios from it.
 
 ### Smart tagging
