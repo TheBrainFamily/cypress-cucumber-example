@@ -24,7 +24,7 @@ There are a few tagged tests in these files: [Facebook.feature](https://github.c
 [Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature).
 
 ###### Simple Example
-  Run ```npm run test -- -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `Twitter.feature` 
+  Run ```./node_modules/.bin/cypress run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `Twitter.feature` 
   have `@feature-tag` above the feature name, and `Google.feature` has no tags, the result should be: 
   
   ```
@@ -41,7 +41,7 @@ There are a few tagged tests in these files: [Facebook.feature](https://github.c
 
 ###### usage of `not`
 
-Run ```npm run test -- -e TAGS='not @twitter-tag'``` in this repo. Only `Facebook.feature` will run, as `Twitter
+Run ```./node_modules/.bin/cypress run -e TAGS='not @twitter-tag'``` in this repo. Only `Facebook.feature` will run, as `Twitter
 .feature` has the unwanted tag, and `Google.feature` has no tags at all. The result should be: 
 
 ```
@@ -58,7 +58,7 @@ Run ```npm run test -- -e TAGS='not @twitter-tag'``` in this repo. Only `Faceboo
 
 ###### usage of `and` 
 
-Run ```npm run test -- -e TAGS='@another-tag-to-include and @some-other-tag'``` in this repo. There is only one 
+Run ```./node_modules/.bin/cypress run -e TAGS='@another-tag-to-include and @some-other-tag'``` in this repo. There is only one 
 that has both the tags, in `Facebook.feature`. The result should be:  
 
 ```
@@ -77,8 +77,8 @@ that has both the tags, in `Facebook.feature`. The result should be:
 ###### combinations
 
 Keep in mind that order matters and use parentheses wisely. The following commands will yield different results:  
-```npm run test -- -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
-```npm run test -- -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
+```./node_modules/.bin/cypress run -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
+```./node_modules/.bin/cypress run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
 
 The first one will include scenario tagged `@tag-to-include` from the [Twitter.feature](https://github
 .com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature), while 
