@@ -4,7 +4,7 @@
   "description": "Example of cypress with cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/cypress run"
   },
   "repository": {
     "type": "git",
