@@ -78,8 +78,7 @@ Feature: The Twitter
 
 ###### usage of `not`
 
-Run ```./node_modules/.bin/cypress run -e TAGS='not @twitter-tag'``` in this repo. Only `Facebook.feature` will run, as `Twitter
-.feature` has the unwanted tag, and `Google.feature` has no tags at all. The result should be: 
+Run ```./node_modules/.bin/cypress run -e TAGS='not @twitter-tag'``` in this repo. Only `Facebook.feature` will run, as `Twitter.feature` has the unwanted tag, and `Google.feature` has no tags at all. The result should be: 
 
 ```
       Spec                                                Tests  Passing  Failing  Pending  Skipped
@@ -95,8 +94,7 @@ Run ```./node_modules/.bin/cypress run -e TAGS='not @twitter-tag'``` in this rep
 
 ###### usage of `and` 
 
-Run ```./node_modules/.bin/cypress run -e TAGS='@another-tag-to-include and @some-other-tag'``` in this repo. There is only one 
-that has both the tags, in `Facebook.feature`. The result should be:  
+Run ```./node_modules/.bin/cypress run -e TAGS='@another-tag-to-include and @some-other-tag'``` in this repo. There is only one scenario that has both the tags, in `Facebook.feature`. The result should be:  
 
 ```
      Spec                                                Tests  Passing  Failing  Pending  Skipped
@@ -115,6 +113,7 @@ that has both the tags, in `Facebook.feature`. The result should be:
 
 Keep in mind that order matters and use parentheses wisely. The following commands will yield different results:  
 ```./node_modules/.bin/cypress run -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
+
 ```./node_modules/.bin/cypress run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
 
 The first one will include scenario tagged `@tag-to-include` from the [Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature), while 
