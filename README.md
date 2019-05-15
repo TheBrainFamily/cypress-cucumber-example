@@ -20,8 +20,45 @@ In order to initialize tests using tags you will have to run cypress and pass TA
 
 ### Examples:
 
-There are a few tagged tests in these files: [Facebook.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Facebook.feature) and 
-[Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature).
+There are a few tagged tests in these files:
+
+[Facebook.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Facebook.feature)
+```
+@feature-tag
+Feature: The Facebook
+
+  I want to open a social network page
+
+  @tag-to-include
+  Scenario: Opening a social network page
+    Given I open Facebook page
+    Then I see "Facebook" in the title
+
+  @another-tag-to-include @some-other-tag
+  Scenario: Different kind of opening
+    Given I kinda open Facebook page
+    Then I am very happy
+
+```
+
+
+[Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature)
+```
+@feature-tag @twitter-tag
+Feature: The Twitter
+
+  I want to tweet things
+
+  @tag-to-include
+  Scenario: Opening Twitter
+    Given I open Twitter page
+    Then I see "Twitter" in the title
+
+  @another-tag-to-include
+  Scenario: Opening Twitter again
+    Given I open Twitter page
+    Then I see "Twitter" in the title
+```
 
 ###### Simple Example
   Run ```./node_modules/.bin/cypress run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `Twitter.feature` 
