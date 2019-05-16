@@ -4,7 +4,7 @@
   "description": "Example of cypress with cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cypress run"
+    "test": "cypress run"
   },
   "repository": {
     "type": "git",
