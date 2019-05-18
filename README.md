@@ -2,13 +2,13 @@
 Initial example of using Cypress with Cucumber.
 
 There are examples that are part of a Continuous Integration build in the main repo, that also showcase more advanced
-usage, please refer there now - https://github.com/TheBrainFamily/cypress-cucumber-preprocessor/tree/master/cypress
+usage, please refer there as well - https://github.com/TheBrainFamily/cypress-cucumber-preprocessor/tree/master/cypress
 
 # Run example tests
 
 ```
 npm install
-npm run test
+npm test
 ```  
 
 # Tags usage
@@ -17,6 +17,8 @@ npm run test
 You can use tags to select which test should run using [cucumber's tag expressions](https://github.com/cucumber/cucumber/tree/master/tag-expressions).
 Keep in mind we are using newer syntax, eg. `'not @foo and (@bar or @zap)'`.
 In order to initialize tests using tags you will have to run cypress and pass TAGS environment variable.
+
+To make things faster and skip cypress opening a browser for every feature file (taking a couple seconds for each one), even the ones we want ignored, we use our own cypress-tags wrapper. It passes all the arguments to cypress, so use it the same way you would use cypress CLI. The only difference is it will first filter out the files we don't care about, based on the tags provided. 
 
 ### Examples:
 
@@ -61,14 +63,12 @@ Feature: The Twitter
 ```
 
 ###### Simple Example
-  Run ```./node_modules/.bin/cypress run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `Twitter.feature` 
+  Run ```./node_modules/.bin/cypress-tags run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `Twitter.feature` 
   have `@feature-tag` above the feature name, and `Google.feature` has no tags, the result should be: 
   
   ```
       Spec                                                Tests  Passing  Failing  Pending  Skipped
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔ news/Google.feature                         4ms        -        -        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔ socialNetworks/Facebook.feature           00:04        2        2        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔ socialNetworks/Twitter.feature            00:05        2        2        -        -        - │
@@ -78,33 +78,25 @@ Feature: The Twitter
 
 ###### usage of `not`
 
-Run ```./node_modules/.bin/cypress run -e TAGS='not @twitter-tag'``` in this repo. Only `Facebook.feature` will run, as `Twitter.feature` has the unwanted tag, and `Google.feature` has no tags at all. The result should be: 
+Run ```./node_modules/.bin/cypress-tags run -e TAGS='not @twitter-tag'``` in this repo. `Facebook.feature` and `Google.feature` will run, as only `Twitter.feature` has the unwanted tag. The result should be: 
 
 ```
       Spec                                                Tests  Passing  Failing  Pending  Skipped
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔ news/Google.feature                         3ms        -        -        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔ socialNetworks/Facebook.feature           00:05        2        2        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔ socialNetworks/Twitter.feature              3ms        -        -        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
     All specs passed!                           00:05        2        2        -        -        -
 ```
 
 ###### usage of `and` 
 
-Run ```./node_modules/.bin/cypress run -e TAGS='@another-tag-to-include and @some-other-tag'``` in this repo. There is only one scenario that has both the tags, in `Facebook.feature`. The result should be:  
+Run ```./node_modules/.bin/cypress-tags run -e TAGS='@another-tag-to-include and @some-other-tag'``` in this repo. There is only one scenario that has both the tags, in `Facebook.feature`. The result should be:  
 
 ```
      Spec                                                Tests  Passing  Failing  Pending  Skipped
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔ news/Google.feature                         3ms        -        -        -        -        - │
-  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ ✔ socialNetworks/Facebook.feature           00:03        1        1        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔ socialNetworks/Twitter.feature              2ms        -        -        -        -        - │
-  └────────────────────────────────────────────────────────────────────────────────────────────────┘
     All specs passed!                           00:03        1        1        -        -        -
 
 ```
@@ -112,9 +104,9 @@ Run ```./node_modules/.bin/cypress run -e TAGS='@another-tag-to-include and @som
 ###### combinations
 
 Keep in mind that order matters and use parentheses wisely. The following commands will yield different results:  
-```./node_modules/.bin/cypress run -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
+```./node_modules/.bin/cypress-tags run -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
 
-```./node_modules/.bin/cypress run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
+```./node_modules/.bin/cypress-tags run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
 
 The first one will include scenario tagged `@tag-to-include` from the [Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature), while 
 the second one will skip all scenarios from it.
