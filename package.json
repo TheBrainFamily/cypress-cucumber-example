@@ -26,6 +26,6 @@
     "cypress-cucumber-preprocessor": "1.11.2"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "step_definitions": "cypress/integration/"
   }
 }
