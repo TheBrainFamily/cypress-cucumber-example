@@ -7,6 +7,6 @@ Given(`I kinda open Facebook page`, () => {
 });
 
 // This is the same step that we have in news/Google/different.js, but you don't have to worry about collisions!
-Then(`I am very happy`, () => {
+Then(`I am super happy`, () => {
   cy.title().should("include", "Facebook");
 });

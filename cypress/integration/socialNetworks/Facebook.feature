@@ -11,4 +11,4 @@ Feature: The Facebook
   @another-tag-to-include @some-other-tag
   Scenario: Different kind of opening
     Given I kinda open Facebook page
-    Then I am very happy
+    Then I am super happy

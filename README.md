@@ -11,6 +11,12 @@ npm install
 npm test
 ```  
 
+## Bundle feature files before running
+
+```
+npm run test:all
+```  
+
 # Tags usage
 
 ### Tagging tests
@@ -39,7 +45,7 @@ Feature: The Facebook
   @another-tag-to-include @some-other-tag
   Scenario: Different kind of opening
     Given I kinda open Facebook page
-    Then I am very happy
+    Then I am super happy
 
 ```
 
