@@ -1,7 +1,7 @@
 import { When } from "cypress-cucumber-preprocessor/steps";
 
-const url = "https://twitter.com";
+const url = "https://github.com";
 
-When(`I open Twitter page`, () => {
+When(`I open GitHub page`, () => {
   cy.visit(url);
 });

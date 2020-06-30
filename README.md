@@ -44,26 +44,26 @@ Feature: The Facebook
 ```
 
 
-[Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature)
+[GitHub.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/GitHub.feature)
 ```
-@feature-tag @twitter-tag
-Feature: The Twitter
+@feature-tag @github-tag
+Feature: The GitHub
 
   I want to tweet things
 
   @tag-to-include
-  Scenario: Opening Twitter
-    Given I open Twitter page
-    Then I see "Twitter" in the title
+  Scenario: Opening GitHub
+    Given I open GitHub page
+    Then I see "GitHub" in the title
 
   @another-tag-to-include
-  Scenario: Opening Twitter again
-    Given I open Twitter page
-    Then I see "Twitter" in the title
+  Scenario: Opening GitHub again
+    Given I open GitHub page
+    Then I see "GitHub" in the title
 ```
 
 ###### Simple Example
-  Run ```./node_modules/.bin/cypress-tags run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `Twitter.feature` 
+  Run ```./node_modules/.bin/cypress-tags run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `GitHub.feature` 
   have `@feature-tag` above the feature name, and `Google.feature` has no tags, the result should be: 
   
   ```
@@ -71,14 +71,14 @@ Feature: The Twitter
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
   │ ✔ socialNetworks/Facebook.feature           00:04        2        2        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔ socialNetworks/Twitter.feature            00:05        2        2        -        -        - │
+  │ ✔ socialNetworks/GitHub.feature            00:05        2        2        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
     All specs passed!                           00:09        4        4        -        -        -
 ```
 
 ###### usage of `not`
 
-Run ```./node_modules/.bin/cypress-tags run -e TAGS='not @twitter-tag'``` in this repo. `Facebook.feature` and `Google.feature` will run, as only `Twitter.feature` has the unwanted tag. The result should be: 
+Run ```./node_modules/.bin/cypress-tags run -e TAGS='not @github-tag'``` in this repo. `Facebook.feature` and `Google.feature` will run, as only `GitHub.feature` has the unwanted tag. The result should be: 
 
 ```
       Spec                                                Tests  Passing  Failing  Pending  Skipped
@@ -104,11 +104,11 @@ Run ```./node_modules/.bin/cypress-tags run -e TAGS='@another-tag-to-include and
 ###### combinations
 
 Keep in mind that order matters and use parentheses wisely. The following commands will yield different results:  
-```./node_modules/.bin/cypress-tags run -e TAGS='@tag-to-include or @another-tag-to-include and not @twitter-tag'```
+```./node_modules/.bin/cypress-tags run -e TAGS='@tag-to-include or @another-tag-to-include and not @github-tag'```
 
-```./node_modules/.bin/cypress-tags run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @twitter-tag'```
+```./node_modules/.bin/cypress-tags run -e TAGS='(@tag-to-include or @another-tag-to-include) and not @github-tag'```
 
-The first one will include scenario tagged `@tag-to-include` from the [Twitter.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Twitter.feature), while 
+The first one will include scenario tagged `@tag-to-include` from the [GitHub.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/GitHub.feature), while 
 the second one will skip all scenarios from it.
 
 ### Smart tagging
