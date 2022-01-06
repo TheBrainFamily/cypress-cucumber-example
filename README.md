@@ -148,3 +148,4 @@ which is an acknowledged bug in cypress itself:
 [cypress-io/cypress#3323](https://github.com/cypress-io/cypress/issues/3323)
 
 Our advice is to not use the "run all" in the GUI - which would be slow once you have enough .feature files anyway. Running through cypress run (for CI use) works as described. 
+
